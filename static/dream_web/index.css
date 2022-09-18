@@ -9,16 +9,18 @@ textarea {
     font-size: 0.95em;
 }
 header, form, #progress-section {
+    padding: 10px 0;
     margin-left: auto;
     margin-right: auto;
     max-width: 1024px;
     text-align: center;
 }
 fieldset {
+    padding: 5px 10px;
     border: none;
     line-height: 2.2em;
 }
-select, input {
+#fieldset-config select,#fieldset-config input {
     margin-right: 10px;
     padding: 2px;
 }
@@ -34,9 +36,6 @@ input[type=checkbox] {
 }
 input#seed {
     margin-right: 0px;
-}
-div {
-    padding: 10px 10px 10px 10px;
 }
 header {
     margin-bottom: 16px;
@@ -88,6 +87,9 @@ header h1 {
 #results img {
     border-radius: 5px;
     object-fit: cover;
+    height: 250px;
+    min-width: 200px;
+    width: auto;
 }
 #fieldset-config {
     line-height:2em;

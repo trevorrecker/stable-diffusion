@@ -23,9 +23,9 @@ function appendOutput(src, seed, config) {
             <img src="${src}"
                  alt="${altText}"
                  title="${altText}"
-                 loading="lazy"
-                 width="256"
-                 height="256">
+                 height="${config.height || ''}"
+                 width="${config.width || ''}"
+                 loading="lazy">
         </a>
         <figcaption>${seed}</figcaption>
     `;
