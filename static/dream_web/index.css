@@ -1,14 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap');
+
 * {
-    font-family: 'Arial';
+    font-family: "Lato", Arial, sans-serif;
     font-size: 100%;
 }
 body {
     font-size: 1em;
 }
-textarea {
-    font-size: 0.95em;
-}
-header, form, #progress-section {
+form, #progress-section {
     padding: 10px 0;
     margin-left: auto;
     margin-right: auto;
@@ -16,33 +15,17 @@ header, form, #progress-section {
     text-align: center;
 }
 fieldset {
-    padding: 5px 10px;
+    padding: 0;
     border: none;
-    line-height: 2.2em;
-}
-#fieldset-config select,#fieldset-config input {
-    margin-right: 10px;
-    padding: 2px;
-}
-input[type=submit] {
-    background-color: #666;
-    color: white;
 }
 input[type=checkbox] {
     margin-right: 0px;
     width: 20px;
     height: 20px;
-    vertical-align: middle;
+    vertical-align: text-top;
 }
 input#seed {
     margin-right: 0px;
-}
-header {
-    margin-bottom: 16px;
-}
-header h1 {
-    margin-bottom: 0;
-    font-size: 2em;
 }
 #search-box {
     display: flex;
@@ -51,12 +34,6 @@ header h1 {
     font-weight: bold;
     font-style: italic;
     display: none;
-}
-#prompt {
-    flex-grow: 1;
-    padding: 5px 10px 5px 10px;
-    border: 1px solid #999;
-    outline: none;
 }
 #submit {
     padding: 5px 10px 5px 10px;
@@ -93,10 +70,6 @@ header h1 {
 }
 #fieldset-config {
     line-height:2em;
-    background-color: #F0F0F0;
-}
-input[type="number"] {
-    width: 60px;
 }
 #seed {
     width: 150px;
@@ -114,6 +87,7 @@ button#reset-seed {
 label {
     white-space: nowrap;
 }
+
 #progress-section {
     display: none;
 }
@@ -121,27 +95,89 @@ label {
     width: 30vh;
     height: 30vh;
 }
-#cancel-button {
-    cursor: pointer;
-    color: red;
-}
-#basic-parameters {
-    background-color: #EEEEEE;
-}
-#txt2img {
-    background-color: #DCDCDC;
-}
-#variations {
-    background-color: #EEEEEE;
-}
-#img2img {
-    background-color: #DCDCDC;
-}
-#gfpgan {
-    background-color: #EEEEEE;
-}
+
 #progress-section {
     background-color: #F5F5F5;
+}
+
+#no-results-message:not(:only-child) {
+    display: none;
+}
+
+:root {
+    --primary: #837FBC;
+    --secondary: #FECC61;
+    --tertiary: #837FBC;
+    --accent: #221E53;
+
+    --gray-300: #C0C0C0;
+    --gray: #E0E0E0;
+    --text: #202020;
+    --text-alt: #ffffff;
+
+    --primary-text: var(--text);
+    --secondary-text: var(--text);
+    --accent-text: var(--text-alt);
+
+    --background: #FEFEFE;
+    --header: var(--background);
+    --input: #FFFFFF;
+
+    --measure-0: 0px;
+    --measure-1: 4px;
+    --measure-2: 12px;
+    --measure-3: 20px;
+    --measure-4: 32px;
+    --measure-5: 64px;
+}
+
+html,body {
+    background-color: var(--background);
+}
+
+a {
+    text-decoration: none;
+    color: var(--tertiary);
+    cursor: pointer;
+}
+a:hover {
+    text-decoration: underline;
+    color: inherit;
+}
+
+input[type=submit]:focus, button:focus, .button:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+input[type=submit], button, .button {
+    display: inline-block;
+    padding: 8px 14px;
+    margin: 0;
+    background-color: var(--btn-background, var(--primary));
+    color: var(--btn-text, var(--primary-text));
+    transition: filter 175ms ease-in-out, 
+                transform 100ms ease;
+
+    border: none;
+    border-radius: 5px;
+
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+input[type=submit]:hover, button:hover, .button:hover {
+    filter: brightness(85%);
+    text-decoration: none;
+}
+input[type=submit]:active, button:active, .button:active {
+    filter: brightness(105%);
+    transform: scale(0.99);
 }
 .section-header {
     text-align: left;
@@ -151,4 +187,239 @@ label {
 #no-results-message:not(:only-child) {
     display: none;
 }
+
+input[type=submit].button-primary, button.button-primary, .button.button-primary {
+    --btn-background: var(--primary);
+    --btn-text: var(--primary-text);
+}
+input[type=submit].button-secondary, button.button-secondary, .button.button-secondary {
+    --btn-background: var(--secondary);
+    --btn-text: var(--secondary-text);
+}
+input[type=submit].button-accent, button.button-accent, .button.button-accent {
+    --btn-background: var(--accent);
+    --btn-text: var(--accent-text);
+}
+input[type=submit].button-small, button.button-small, .button.button-small {
+    padding: 4px 10px;
+    line-height: 1.5em;
+    font-size: 0.9em;
+}
+
+textarea, input[type=text], input[type=number], select {
+    padding: 4px 8px;
+    margin: 0;
+    font-size: 0.9em;
+    background-color: var(--input);
+    color: var(--text);
+    border: 1px solid var(--gray-300);
+    border-radius: 5px;
+    line-height: 1.5em;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+textarea:focus, input[type=text]:focus, input[type=number]:focus, select:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+input[type=number] {
+    max-width: calc(4em + 16px);
+}
+input[type=number]#seed {
+    max-width: calc(12em + 16px);;
+}
+
+select {
+    cursor: pointer;
+    background-color: var(--input);
+    color: var(--text);
+
+    padding-right: calc(16px + 0.65em);
+
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23currentColor%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat, repeat;
+    background-position: right 8px top 50%, 0 0;
+    background-size: .65em auto, 100%;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+  
+/* For IE <= 11 */
+select::-ms-expand {
+    display: none; 
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 16px;
+    background: var(--header);
+
+    border-bottom: 1px solid var(--gray);
+
+}
+header h1 {
+    flex-grow: 1;
+    font-size: min(1.5rem, max(0.85rem, 5.5vw));
+    color: var(--accent);
+}
+
+#generate-form {
+    background-color: var(--input);
+    padding: 8px;
+    margin-top: 18px;
+    border-radius: 7px;
+}
+
+#search-box {
+    background: var(--input);
+    border-radius: 7px;
+}
+
+#search-box textarea {
+    flex-grow: 1;
+    outline: none;
+    resize: vertical;
+
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+    min-height: calc((1.5em * 1.15) + 16px);
+    padding-block: 8px;
+}
+
+#search-box #submit {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding: 8px 12px;
+    border: none;
+
+    font-size: 1.15em;
+    font-weight: bold;
+
+    --btn-background: var(--accent);
+    --btn-text: var(--accent-text);
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 2rem;
+    background-color: var(--background);
+    padding: var(--measure-2);
+    border-top: 1px solid var(--gray);
+}
+
+/* Mobile-specific styles */
+@media only screen and (max-width: 700px) {
+    header h1 {
+        text-align: center;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+}
+
+/* Desktop-specific styles */
+@media only screen and (min-width: 700px) {
+    .mobile-only {
+        display: none;
+    }
+}
+
+.p-0 { padding: var(--measure-0) !important; }
+.p-1 { padding: var(--measure-1) !important; }
+.p-2 { padding: var(--measure-2) !important; }
+.p-3 { padding: var(--measure-3) !important; }
+.p-4 { padding: var(--measure-4) !important; }
+.p-5 { padding: var(--measure-5) !important; }
+.px-0 { padding-inline: var(--measure-0) !important; }
+.px-1 { padding-inline: var(--measure-1) !important; }
+.px-2 { padding-inline: var(--measure-2) !important; }
+.px-3 { padding-inline: var(--measure-3) !important; }
+.px-4 { padding-inline: var(--measure-4) !important; }
+.px-5 { padding-inline: var(--measure-5) !important; }
+.py-0 { padding-block: var(--measure-0) !important; }
+.py-1 { padding-block: var(--measure-1) !important; }
+.py-2 { padding-block: var(--measure-2) !important; }
+.py-3 { padding-block: var(--measure-3) !important; }
+.py-4 { padding-block: var(--measure-4) !important; }
+.py-5 { padding-block: var(--measure-5) !important; }
+.pt-0 { padding-top: var(--measure-0) !important; }
+.pt-1 { padding-top: var(--measure-1) !important; }
+.pt-2 { padding-top: var(--measure-2) !important; }
+.pt-3 { padding-top: var(--measure-3) !important; }
+.pt-4 { padding-top: var(--measure-4) !important; }
+.pt-5 { padding-top: var(--measure-5) !important; }
+.pb-0 { padding-bottom: var(--measure-0) !important; }
+.pb-1 { padding-bottom: var(--measure-1) !important; }
+.pb-2 { padding-bottom: var(--measure-2) !important; }
+.pb-3 { padding-bottom: var(--measure-3) !important; }
+.pb-4 { padding-bottom: var(--measure-4) !important; }
+.pb-5 { padding-bottom: var(--measure-5) !important; }
+.ps-0 { padding-inline-start: var(--measure-0) !important; }
+.ps-1 { padding-inline-start: var(--measure-1) !important; }
+.ps-2 { padding-inline-start: var(--measure-2) !important; }
+.ps-3 { padding-inline-start: var(--measure-3) !important; }
+.ps-4 { padding-inline-start: var(--measure-4) !important; }
+.ps-5 { padding-inline-start: var(--measure-5) !important; }
+.pe-0 { padding-inline-end: var(--measure-0) !important; }
+.pe-1 { padding-inline-end: var(--measure-1) !important; }
+.pe-2 { padding-inline-end: var(--measure-2) !important; }
+.pe-3 { padding-inline-end: var(--measure-3) !important; }
+.pe-4 { padding-inline-end: var(--measure-4) !important; }
+.pe-5 { padding-inline-end: var(--measure-5) !important; }
+
+.m-0 { margin: var(--measure-0) !important; }
+.m-1 { margin: var(--measure-1) !important; }
+.m-2 { margin: var(--measure-2) !important; }
+.m-3 { margin: var(--measure-3) !important; }
+.m-4 { margin: var(--measure-4) !important; }
+.m-5 { margin: var(--measure-5) !important; }
+.mx-0 { margin-inline: var(--measure-0) !important; }
+.mx-1 { margin-inline: var(--measure-1) !important; }
+.mx-2 { margin-inline: var(--measure-2) !important; }
+.mx-3 { margin-inline: var(--measure-3) !important; }
+.mx-4 { margin-inline: var(--measure-4) !important; }
+.mx-5 { margin-inline: var(--measure-5) !important; }
+.my-0 { margin-block: var(--measure-0) !important; }
+.my-1 { margin-block: var(--measure-1) !important; }
+.my-2 { margin-block: var(--measure-2) !important; }
+.my-3 { margin-block: var(--measure-3) !important; }
+.my-4 { margin-block: var(--measure-4) !important; }
+.my-5 { margin-block: var(--measure-5) !important; }
+.mt-0 { margin-top: var(--measure-0) !important; }
+.mt-1 { margin-top: var(--measure-1) !important; }
+.mt-2 { margin-top: var(--measure-2) !important; }
+.mt-3 { margin-top: var(--measure-3) !important; }
+.mt-4 { margin-top: var(--measure-4) !important; }
+.mt-5 { margin-top: var(--measure-5) !important; }
+.mb-0 { margin-bottom: var(--measure-0) !important; }
+.mb-1 { margin-bottom: var(--measure-1) !important; }
+.mb-2 { margin-bottom: var(--measure-2) !important; }
+.mb-3 { margin-bottom: var(--measure-3) !important; }
+.mb-4 { margin-bottom: var(--measure-4) !important; }
+.mb-5 { margin-bottom: var(--measure-5) !important; }
+.ms-0 { margin-inline-start: var(--measure-0) !important; }
+.ms-1 { margin-inline-start: var(--measure-1) !important; }
+.ms-2 { margin-inline-start: var(--measure-2) !important; }
+.ms-3 { margin-inline-start: var(--measure-3) !important; }
+.ms-4 { margin-inline-start: var(--measure-4) !important; }
+.ms-5 { margin-inline-start: var(--measure-5) !important; }
+.me-0 { margin-inline-end: var(--measure-0) !important; }
+.me-1 { margin-inline-end: var(--measure-1) !important; }
+.me-2 { margin-inline-end: var(--measure-2) !important; }
+.me-3 { margin-inline-end: var(--measure-3) !important; }
+.me-4 { margin-inline-end: var(--measure-4) !important; }
+.me-5 { margin-inline-end: var(--measure-5) !important; }
 
